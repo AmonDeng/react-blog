@@ -1,0 +1,78 @@
+
+.articleDetailContent{
+  display:block;
+  margin-right: 5%;
+  padding-left: 5%;
+}
+
+@media screen and (min-width: 768px) {
+ .articleDetailContent{
+    padding-left: 10%;
+}
+
+}
+
+@media screen and (min-width: 1200px) {
+ .articleDetailContent{
+    padding-left: 20%;
+}
+
+}
+
+
+.articleContent{
+  display:block;
+  margin-right: 5%;
+}
+.articleTitle {
+  display: block;
+  color: #333333;
+  margin-bottom: 15px;
+  font-size: 24px;
+  /*font-size: .9em;*/
+}
+.articleContent {
+  display: block;
+  color: #999999;
+  letter-spacing:2px;
+  font-size: .9em;
+}
+.articleTime{
+  display:block;
+  float: left;
+  color: #c7c7c7;
+  margin-top: 5px;
+  font-size: .8em;
+}
+.articleFoot{
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.btnsuccess {
+  font-size: 13px;
+  display: block;
+/*  margin-left: px;*/
+  margin-left: 150px;
+  background: #5cb85c;
+  color: #fff;
+  border-radius: 18px;
+  border: 2px solid #5cb85c;
+  line-height: 18px;
+
+
+}
+.btnsuccess:hover, .btnsuccess:focus, .btnsuccess:active {
+  background: #4cae4c !important;
+  border-color: #4cae4c !important;
+}
+.btnsuccess.btnoutline {
+  background: transparent;
+  color: #5cb85c;
+  border: 2px solid #5cb85c;
+}
+.btnsuccess.btn-outline:hover, .btnsuccess.btn-outline:focus, .btnsuccess.btn-outline:active {
+  background: #5cb85c;
+  color: #fff;
+}
