@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import bootstrap from './styles/bootstrap.css'
-import aa from './styles/aa.css'
-import style from './styles/style.css'
+import './styles/bootstrap.css'
+import './styles/blog.css'
 import Article from './containers/Article.js'
 import abc from './containers/Home.js'
 import avc from './containers/About.js'
@@ -59,8 +58,8 @@ onWindowResize(){
          <div> 
             {/* <LoadingBar/> */}
             {/* <Spin spinning = {true}></Spin> */}
-         <div className = {aa.mainbutton}>
-         <button className = {aa.btn} onClick={() => {
+         <div className = "mainbutton">
+         <button className = "btn" onClick={() => {
                 var navNode = this.refs.nav;
                 if (this.state.isClick == false) {
                     this.state.isClick = true;
@@ -74,13 +73,13 @@ onWindowResize(){
 
             }}></button>
          </div>      
-    <aside id = {aa.fh5coaside} role="complementary"  className = {bootstrap.border}>
+    <aside id = "dmaside" role="complementary"  className = "border">
     
-     <img ref = 'test' className = {aa.avatar} src = {require('./images/avatar.jpg')}></img>
+     <img ref = 'test' className = "avatar" src = {require('./images/avatar.jpg')}></img>
      
-     <h1 id = {aa.fh5cologo}><a href="index.html">Amon.D</a></h1>
-      <nav id = {aa.fh5comainmenu}role="navigation">
-      <img className = {aa.smallavatar} src = {require('./images/avatar.jpg')}></img>
+     <h1 id = "fh5cologo"><a href="index.html">Amon.D</a></h1>
+      <nav id = "fh5comainmenu"role="navigation">
+      <img className = "smallavatar" src = {require('./images/avatar.jpg')}></img>
         <ul ref = 'nav'>
           <li onClick={() => {
                 var navNode = this.refs.nav;

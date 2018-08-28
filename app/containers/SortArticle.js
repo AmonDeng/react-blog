@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import articlestyle from '../styles/article.css'
+import  '../styles/article.css'
 import { Route, HashRouter, Switch, Link } from 'react-router-dom';
 class SortArticle extends React.Component {
     constructor() {
@@ -16,12 +16,12 @@ class SortArticle extends React.Component {
     }
     render() {
         return (
-            <div className = {articlestyle.articleContent}>
-            <h2 className = {articlestyle.articleTitle}>{this.props.title}</h2>
-            <div className = {articlestyle.articleContent}>{this.props.content}</div>
-            <div className = {articlestyle.articleFoot}>
-            <div className = {articlestyle.articleTime} >{this.props.publishTime}   •   前端技术栈  </div>
-            <button className = {articlestyle.btnsuccess}><Link to={"/articleDetail/" + this.props.article_id}>继续阅读</Link></button>
+            <div className = "articleContent">
+            <h2 className = "articleTitle">{this.props.title}</h2>
+            <div className = "articleContent">{this.props.content}</div>
+            <div className = "articleFoot">
+            <div className = "articleTime" >{this.props.publishTime}   •   前端技术栈  </div>
+            <button className = "btnsuccess"><Link to={"/articleDetail/" + this.props.article_id}>继续阅读</Link></button>
            </div>
             <hr></hr>
            </div>

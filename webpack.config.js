@@ -13,41 +13,53 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /(\.jsx|\.js)$/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: [
-                            "es2015", "react"
+           {//ES6、JSX处理
+              test:/(\.jsx|\.js)$/,
+              exclude: /node_modules/,
+              loader:'babel-loader',
+              query:
+                  {
+                      presets:["env", "react"],
+                       plugins: [
+                            [  "import",{libraryName: "antd", libraryDirectory: "es",style: 'css'}] // antd按需加载
                         ]
-                    }
-                },
-                exclude: /node_modules/
+
+                  },
+          },
+ //   {
+     //   test: /\.css$/,
+     //   use: [
+     //            {
+     //              loader: "style-loader"
+     //            }, {
+     //              loader: "css-loader",
+     //              options: {
+     //                  modules: true, // 指定启用css modules
+     //                  localIdentName: '[name]_[local]_[hash:base64:5]' // 指定css的类名格式
+     //                  }
+     //              }
+     //        ],
+     // },
+
+
+     {//antd样式处理
+              test:/\.css$/,
+              exclude:/src/,
+              use:[
+                  { loader: "style-loader",},
+                  {
+                      loader: "css-loader",
+                      options:{
+                          importLoaders:1
+                      }
+                  }
+              ]
             },
-            {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: "style-loader",
-                    },
-                    {
-                        loader: "css-loader",
-                        options: {
-                            modules: true
-                        }
-                    }
-                ]
-            },
-            {
+
+               {
                 test: /\.(png|jpg)$/,
                 loader: 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]'
             }
-
         ]
-    },
-  plugins: [
-    // "import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }// `style: true` 会加载 less 文件
-  ],
-
+    }
 };

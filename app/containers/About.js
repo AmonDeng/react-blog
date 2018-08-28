@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-
-import style from '../styles/style.css'
 class About extends Component {
     constructor() {
         super();
@@ -37,7 +35,7 @@ class About extends Component {
     }
     render() {
         return (
-            <div id ={style.fh5comain}>
+            <div>
                  <div
             dangerouslySetInnerHTML={{
                 __html: this.state.data['content']

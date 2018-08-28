@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from  'react-redux'
 import Sort from './SortArticle.js'
-import style from '../styles/style.css'
-import articlestyle from '../styles/article.css'
-import aa from '../styles/aa.css'
+import '../styles/blog.css'
+import {Card,List, Avatar,Spin} from 'antd';
+import 'antd/dist/antd.css'; 
 // import { Provider, connect } from 'react-redux';
 import { changeTextAction,buttonClickAction} from './testAction.js'
+
+  
 class Article extends Component {
     constructor() {
         super();
         this.state = {
-            data: []
+            data: [],
+            loading:true
         };
     }
     handleButtonClick(data){
@@ -25,6 +28,7 @@ class Article extends Component {
             (result) => {
 
                 if (result.ok) {
+                   
                     result.json().then(
                         (obj) => {
                             var temp = []
@@ -34,7 +38,8 @@ class Article extends Component {
                                 temp.push(<li><Sort title = {username['title']} content= {username['content']} publishTime = {username['publishtime']}  article_id= {username['id']}/></li>)
                             })
                             this.setState({
-                                data: temp
+                                data: temp,
+                                loading:false
                             })
                             this.handleButtonClick(temp)
                         }
@@ -50,16 +55,31 @@ class Article extends Component {
     }
 
     render() {
-        const {text} = this.props
+        const {text,isloading} = this.props
         return (
-            <div className= {aa.wapper}>
-            <div id = {style.fh5comain}>
+    //         <Card loading={true} title="Card title">
+    //         <List
+    //   itemLayout="horizontal"
+    //   loading = {true}
+    //   dataSource={data}
+    //   renderItem={item => (
+    //     <List.Item>
+    //       <List.Item.Meta
+    //         description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+    //       />
+    //     </List.Item>
+    //   )}
+    // />
+    //       </Card>
+  
+            <div className= "wapper">
+            <Card id = "fh5comain" bordered = {false} loading={isloading} >
                 <ul >
-                  {text}
+                  {text}  
                 </ul>
-            </div> 
-            < footer className = {aa.footer} > 
-            <div className = {aa.line}></div>
+            </Card> 
+            < footer className = "footer" > 
+            <div className = "line"></div>
             <p >本站点采用知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</p>
             <p>由 Jekyll 于 2017-10-18 生成，感谢 Digital Ocean 为本站提供稳定的 VPS 服务</p>
             <p>本站由 @Amon Deng创建，样式参考于喵神，您可以在 GitHub 找到本站源码 - © 2017</p>
@@ -72,7 +92,8 @@ class Article extends Component {
 
 function mapStateToProps(state) {
     return {
-        text: state.text
+        text: state.text,
+        isloading : state.isloading
     }
 }
 

@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import articlestyle from '../styles/article.css'
-import style from '../styles/style.css'
-import aa from '../styles/aa.css'
-
-
+import  '../styles/article.css'
+import '../styles/blog.css'
+import {Card,List, Avatar,Spin} from 'antd';
+import 'antd/dist/antd.css'; 
 class ArticleDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
             id: this.props.article_id,
-            data: []
+            data: [],
+            isloading : true
         };
     }
     componentWillMount() {
@@ -24,17 +24,14 @@ class ArticleDetail extends Component {
             (result) => {
 
                 if (result.ok) {
-
+                    
                     result.json().then(
                         (obj) => {
                             console.log(obj)
                             this.setState({
-
-                                data: obj['data']
+                                data: obj['data'],
+                                isloading: false,
                             })
-
-
-
                         }
                     )
                 }
@@ -48,16 +45,19 @@ class ArticleDetail extends Component {
     }
     render() {
         return (
-            <div id ={style.fh5comain}>
+
+              <Card id = "fh5comain" bordered = {false} loading = {this.state.isloading} style = {{}}>
          
-        <div className = {articlestyle.articleDetailContent}>
-                    <div
-            dangerouslySetInnerHTML={{
-                __html: this.state.data['htmlcontent']
-            }}>
-           
-                    </div>
-                </div> < /div>
+         <div className = 'articleDetailContent'>
+                     <div
+             dangerouslySetInnerHTML={{
+                 __html: this.state.data['htmlcontent']
+             }}>
+            
+                     </div>
+                 </div> </Card>
+          
+          
         );
     }
 }
